@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class VerbsController < PublicController
+  include Cardable
+
   load_and_authorize_resource
 
   def index

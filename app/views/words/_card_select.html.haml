@@ -1,0 +1,5 @@
+= two_column_card t('words.show.cards.title'), t('words.show.cards.description') do
+  = box do
+    = form_tag [:card, word], method: :get, class: 'flex gap-2' do
+      = select_tag :card_id, options_from_collection_for_select(Card.accessible_by(current_ability).with_word_type(word.model_name.singular), :id, :name), class: 'mt-0'
+      %button.button(type="submit")= t('words.show.cards.show')

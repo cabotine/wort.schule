@@ -47,7 +47,7 @@ class CardsController < ApplicationController
 
   def card_params
     params.require(:card).permit(
-      :name, :description, :template, :visibility
+      :name, :description, :word_type, :template, :visibility
     )
   end
 end

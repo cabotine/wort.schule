@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_173351) do
     t.string "name"
     t.text "description"
     t.text "template"
+    t.string "word_type", default: "noun"
     t.string "visibility", default: "private"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

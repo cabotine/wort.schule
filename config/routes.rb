@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
-  get "page/impressum"
+  concern :cardable do
+    get :card, action: :card
+  end
+
   devise_for :users, path: "devise/users", controllers: {registrations: "registrations", sessions: "users/sessions"}
 
   root to: "nouns#index"
+  get "page/impressum"
 
   resource :search, only: :show
 
   # Object routes
   resources :nouns do
+    member { concerns :cardable }
     collection do
       get "by_genus/:genus", to: "nouns#by_genus", as: :by_genus
     end
   end
-  resources :verbs
-  resources :adjectives
+  resources :verbs do
+    member { concerns :cardable }
+  end
+  resources :adjectives do
+    member { concerns :cardable }
+  end
   resources :users
   resources :schools do
     resources :teaching_assignments, only: %i[new create destroy]

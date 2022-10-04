@@ -15,3 +15,7 @@ de:
       visibility:
         private: Privat
         public: Öffentlich
+      word_type:
+        noun: Substantiv
+        verb: Verb
+        adjective: Adjektiv

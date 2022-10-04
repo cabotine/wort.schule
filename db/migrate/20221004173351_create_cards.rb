@@ -4,6 +4,7 @@ class CreateCards < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :description
       t.text :template
+      t.string :word_type, default: 'noun'
       t.string :visibility, default: 'private'
       t.references :user, null: false, foreign_key: true
 

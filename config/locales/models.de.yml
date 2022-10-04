@@ -203,5 +203,6 @@ de:
       card:
         name: Name
         description: Beschreibung
+        word_type: Wortart
         template: Template
         visibility: Sichtbarkeit

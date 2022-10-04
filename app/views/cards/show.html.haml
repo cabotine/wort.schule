@@ -11,9 +11,12 @@
       = render(list.add(Card.human_attribute_name(:description))) do
         = @card.description
     
+      = render(list.add(Card.human_attribute_name(:word_type))) do
+        = @card.word_type_text
+
       = render(list.add(Card.human_attribute_name(:template))) do
         %code
           %pre= @card.template
-    
+
       = render(list.add(Card.human_attribute_name(:visibility))) do
         = @card.visibility_text
