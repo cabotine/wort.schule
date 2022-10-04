@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_08_150114) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_173351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150114) do
     t.boolean "absolute", default: false, null: false
     t.boolean "irregular_declination", default: false, null: false
     t.boolean "irregular_comparison", default: false, null: false
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "template"
+    t.string "visibility", default: "private"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_cards_on_name", unique: true
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "compound_entities", force: :cascade do |t|
@@ -349,6 +361,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_150114) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cards", "users"
   add_foreign_key "example_sentences", "words"
   add_foreign_key "hierarchies", "hierarchies", column: "top_hierarchy_id"
   add_foreign_key "learning_group_memberships", "learning_groups"

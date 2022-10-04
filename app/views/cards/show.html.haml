@@ -1,0 +1,19 @@
+= title_with_actions @card.name do
+  = link_to t('actions.edit'), edit_card_path(@card), class: 'button primary'
+
+= two_column_card Card.model_name.human, "", first: true do
+  = box padding: false do
+    = box_description_list do |list|
+
+      = render(list.add(Card.human_attribute_name(:name))) do
+        = @card.name
+    
+      = render(list.add(Card.human_attribute_name(:description))) do
+        = @card.description
+    
+      = render(list.add(Card.human_attribute_name(:template))) do
+        %code
+          %pre= @card.template
+    
+      = render(list.add(Card.human_attribute_name(:visibility))) do
+        = @card.visibility_text

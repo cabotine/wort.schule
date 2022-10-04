@@ -1,0 +1,3 @@
+= link_if(can?(:show, card), card, id: dom_id(card)) do
+  = box class: 'h-full' do
+    = card.name

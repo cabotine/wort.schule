@@ -42,6 +42,8 @@ class Ability
         can :crud, CompoundPhonemreduction
         can :crud, CompoundVocalalternation
 
+        can :crud, Card, {user:}
+
         # User management
         can :read, User, role: "Student"
         can %i[crud invite read_students], LearningGroup, teacher_id: user.id
@@ -68,6 +70,8 @@ class Ability
         can :manage, CompoundPostconfix
         can :manage, CompoundPhonemreduction
         can :manage, CompoundVocalalternation
+
+        can :crud, Card, {user:}
 
         # User management
         can :manage, User

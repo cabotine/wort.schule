@@ -11,3 +11,7 @@ de:
         Verb: Verb
         adjective: Adjektiv
         noun: Substantiv
+    card:
+      visibility:
+        private: Privat
+        public: Öffentlich
