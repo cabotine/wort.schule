@@ -1,1 +1,1 @@
-= render CardComponent.new(word: @word, card: @card)
+= render CardComponent.new(word: @word, card: @card, default: Rails.env.development? && params[:default].present?)
